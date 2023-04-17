@@ -1,0 +1,49 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red85\green142\blue40;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c39975\c61335\c20601;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28300\viewh14840\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Please see the provided images. Follow the design of the app, and take the old app (\'93TrailCam Ace\'94) as inspiration. \
+\
+\cb2 We have created the structure of the database in Firestone. You will be invited to a second git repo, hunter-backend where you can use the emulator to test the firebase functions. There are two directories under functions/src. Flutter_api is the function interaction with the app, and the camera_api is the functions for communicate with the camera. To run the emulator, execute run.sh to start all the emulator services and load sample data. \
+\cb1 \
+When clicking on:\
+	the question mark in the top right corner\
+	\cb2 terms of service\
+	privacy policy\cb1 \
+Just make a simple textbox popup, we can decide later what the text should be.\
+\
+\cb2 We should also make a flag button on the login screen, when you click on the flag you will be able to select country and therefore change the language of the app.\
+\cb1 \
+\
+When you click edit on the subscription box, there should be a popup-window that display 3 different subscription models. There should also be a switch in the top that is either \'93monthly\'94 or \'93yearly\'94 Then the prices is adjusted on the button. When you buy a subscription, you should be redirected to apple/google payment gateway.\
+\
+Subscription 1: \
+500 images\
+\
+Subscription 2:\
+2000 images\
+\
+Subscription 3:\
+4000 images\
+\
+We need to be able to count the number of images each camera takes. For example if camera 1 and camera 2 take 250 images each, assuming you have subscription 1 you have reached the maximum limit and therefore should disable all the cameras through changing the setting \'93sendImage\'94 to False. Once you change subscription or a month have passed since you bought the subscription, you get additional 500 images (assuming you have not canceled the subscription) by changing \'93sendImage\'94 to True again. Please refer to image_counter to count the number of images and image_limit to know how many images you can read. When the subscription is renewed after a month, set the image counter to 0. If you change subscription, set the image_limit to the correct number.  Note that we have already fixed so that image_counter is increased each time an image is taken. The only thing you need to focus on is to reset the counter when needed and change the image_limit when needed.\
+\
+\cb2 There is a qr code on each camera. This qr code is used to identify each unique camera. I will provide an image of the qr code for you to try on. This camera is then added to the database. If the camera already exist, please warn the user and make a a popup-window that displays that you cannot add the camera.\cb1 \
+\
+\cb2 When logging in to the app for the first time, there should be a pop-up window that follows:\'94 Add your first camera\'94 and a button to add the camera\
+\cb1 \
+\cb2 All the images is stored in firebase storage, under images/camera_id/filename. You should be able to fetch all the images from the cameras you own + cameras shared with you. \cb1 \
+\cf3 \
+\cb2 When clicking the download button on the image, you should download the image to your phone, and the icon should be replaced with a \'93checked\'94 icon. There should also be displayed how long before the image is deleted on the server, it starts on 30 days and count down, and on day 0 you should no longer be able to get the image. (We have already made and auto delete in google bucket)\cf0 \cb1 \
+\
+\
+The camera firmware is not yet done, however you should be able to fully test the api in postman. Please provide questions if you are wondering something about the any settings of the camera or similar.\
+\
+Postman documentation: \
+https://documenter.getpostman.com/view/17087898/2s83mbrQtZ\
+change the environmental variable \'93database\'94 in postman if you would like to switch between emulator and global database\
+\
+}
