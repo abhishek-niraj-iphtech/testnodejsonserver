@@ -354,6 +354,7 @@ exports.login = (req, res) => {
         message: "login successfully",
         token: jsontoken,
         userType: results[0]["emp_role"],
+        empId: results[0]["emp_id"],
       });
     } else {
       return res.status(403).json({

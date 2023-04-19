@@ -28,7 +28,7 @@ EmplyoeeLeaves.addEmplyoeeLeaves = (newLeaves, result) => {
 
 EmplyoeeLeaves.getLeaves = (id, result) => {
   dbConn.query(
-    "SELECT leaves.leave_type, emplyoee_leaves.total_leaves, emplyoee_leaves.renaming_leaves FROM Leaves JOIN emplyoee_leaves ON Leaves.id = emplyoee_leaves.leave_id WHERE emplyoee_leaves.emp_id = ? GROUP BY leaves.leave_type",
+    "SELECT emplyoee_leaves.leave_id,leaves.leave_type, emplyoee_leaves.total_leaves, emplyoee_leaves.renaming_leaves FROM Leaves JOIN emplyoee_leaves ON Leaves.id = emplyoee_leaves.leave_id WHERE emplyoee_leaves.emp_id = ? GROUP BY leaves.leave_type",
     [id],
     (err, res) => {
       if (err) {
